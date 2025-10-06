@@ -10,5 +10,5 @@ import { DatePipe } from '@angular/common';
 })
 export class FooterComponent {
   today = new Date();
-  myName = 'Manvir Singh'; // show your name + current date
+  myName = 'Gurmukhtiar Singh Toor';
 }
