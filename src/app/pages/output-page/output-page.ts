@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-output-page',
-  imports: [],
+  standalone: true,
   templateUrl: './output-page.html',
-  styleUrl: './output-page.css'
+  styleUrls: ['./output-page.css'],
 })
-export class OutputPage {
-
-}
+export class OutputPage {}

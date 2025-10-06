@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-input-page',
-  imports: [],
+  standalone: true,
   templateUrl: './input-page.html',
-  styleUrl: './input-page.css'
+  styleUrls: ['./input-page.css'],
 })
-export class InputPage {
-
-}
+export class InputPage {}
