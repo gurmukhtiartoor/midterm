@@ -1,1 +1,15 @@
-<p>output-page works!</p>
+<main class="card">
+  <img src="/images/output-hero.jpg" alt="Summary" class="hero" />
+  <h2>Employee Summary</h2>
+
+  <ng-container *ngIf="employeeService.employee as emp; else empty">
+    <p><strong>Name:</strong> {{ emp.name }}</p>
+    <p><strong>Salary:</strong> {{ emp.salary | currency }}</p>
+    <p><strong>Employee Term:</strong> {{ employeeService.termLabel(emp.term) }}</p>
+    <p><a routerLink="/input" (click)="employeeService.reset()">← Enter another employee</a></p>
+  </ng-container>
+
+  <ng-template #empty>
+    <p>No data yet. <a routerLink="/input">Go to Input</a></p>
+  </ng-template>
+</main>

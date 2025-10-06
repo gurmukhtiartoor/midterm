@@ -1,1 +1,36 @@
-<p>input-page works!</p>
+<main class="card">
+  <img src="/images/input-hero.jpg" alt="Team working" class="hero" />
+
+  <h2>Enter Employee Details</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="field">
+      <label for="name">Employee Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="e.g., Alex Johnson" />
+      <small *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+        Name is required (min 2 chars).
+      </small>
+    </div>
+
+    <div class="field">
+      <label for="salary">Employee Salary</label>
+      <input id="salary" type="number" formControlName="salary" placeholder="e.g., 65000" />
+      <small *ngIf="form.get('salary')?.touched && form.get('salary')?.invalid">
+        Provide a non-negative number.
+      </small>
+    </div>
+
+    <div class="field">
+      <label for="term">Employee Term</label>
+      <select id="term" formControlName="term">
+        <option [ngValue]="null" disabled>Select a term</option>
+        <option *ngFor="let t of terms" [ngValue]="t.value">{{ t.label }}</option>
+      </select>
+      <small *ngIf="form.get('term')?.touched && form.get('term')?.invalid">
+        Please choose a term.
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</main>
